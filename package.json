@@ -11,7 +11,6 @@
     "@mdx-js/loader": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
     "@next/mdx": "^9.2.0",
-    "autoprefixer": "^9.7.4",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
     "formik": "^2.1.2",
@@ -20,20 +19,16 @@
     "lazysizes": "^5.2.0",
     "next": "^9.2.0",
     "nprogress": "^0.2.0",
-    "postcss-import": "^12.0.1",
-    "postcss-nested": "^4.2.1",
-    "postcss-preset-env": "^6.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "rehype-shiki": "^0.0.6",
     "rehype-slug": "^2.0.3",
     "remark-images": "^1.0.0",
-    "tailwindcss": "^1.1.4"
+    "tailwindcss": "^1.2.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.0.5",
     "babel-eslint": "^10.0.3",
-    "cssnano": "^4.1.10",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-config-standard": "^14.1.0",
@@ -47,6 +42,8 @@
     "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^4.2.0",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1"
   },

@@ -131,4 +131,9 @@ article {
   & video {
     @apply my-10;
   }
+
+  & > strong,
+  & > em {
+    display: block;
+  }
 }
