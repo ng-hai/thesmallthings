@@ -1,0 +1,459 @@
+import Post from "../../components/blog/post"
+
+export const meta = {
+  date: "February 17, 2020",
+  slug: "/blog/tailwind-nextjs",
+  title: "Using Tailwind CSS in a Next.js project",
+  description:
+    "Basic starting point for using Tailwind CSS with Next.js, including migration guide, from development to production.",
+}
+
+export default Post(meta)
+
+In this post, I will share the way how I set up Tailwind in a Next.js project.
+Including recommended tips, extensions, and tools.
+Let’s find out.
+
+_**Important:** I’m not using Tailwind with Sass, Less, Stylus, or other preprocessors. Since Tailwind is a PostCSS plugin, I will take advantage of PostCSS plugins._
+
+## Information
+
+```sh
+# Formatting based on `gatsby info` command
+
+System:
+  OS: macOS 10.15.3
+  CPU: (4) x64 Intel(R) Core(TM) i5-8210Y CPU @ 1.60GHz
+  Shell: 5.7.1 - /bin/zsh
+
+Binaries:
+  Node: 12.6.0
+  Yarn: 1.22.0
+  npm: 6.9.0
+
+npmPackages:
+  next: ^9.2.0
+  tailwindcss: ^1.2.0
+```
+
+When writing this post, Tailwind and Next.js have released a new version. I still cover the migration guide for projects before Next.js 9.2.
+
+## Installation
+
+Install Next.js by using [Create Next App](https://www.npmjs.com/package/create-next-app).
+
+```sh filename=Terminal
+# Using Yarn
+yarn create next-app tailwind-nextjs
+
+# Using npm
+npx create-next-app tailwind-nextjs
+```
+
+Next.js does not include the `src` folder by default. As usual, I move `pages` and `components` into `src` for better management.
+
+```sh
+# Folder tree
+
+tailwind-nextjs
+├── .next
+├── node_modules
+├── public
+├── src
+│ ├── components
+│ └── pages
+├── .gitignore
+├── package.json
+└── yarn.lock
+```
+
+Continue to install Tailwind and PostCSS plugins.
+
+```sh filename=Terminal
+# Using Yarn
+yarn add tailwindcss postcss-import postcss-preset-env
+
+# Using npm
+npm install tailwindcss postcss-import postcss-preset-env
+```
+
+`postcss-import` and `postcss-preset-env` are optional plugins. I will explain in the configuration step.
+
+Create an index CSS file following the path `./src/styles/index.css`.
+
+```css filename=index.css
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+```
+
+And a `postcss.config.js` file to get Tailwind compiled on build-time.
+
+```js filename=postcss.config.js
+module.exports = {
+  plugins: ["tailwindcss"],
+}
+```
+
+Then override the default `next/app` in `./src/pages/_app.js` file.
+This makes Tailwind available to every pages or components.
+
+```js filename=_app.js
+import "../styles/index.css"
+
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+```
+
+Finally, replace `./src/pages/index.js` with below content to test if Tailwind is working
+
+```js filename=index.js
+const Home = () => {
+  return (
+    <div className="p-4">
+      <button class="px-4 py-2 font-bold text-white bg-blue-500 rounded">
+        Button
+      </button>
+    </div>
+  )
+}
+
+export default Home
+```
+
+Starting development server and I have a blue button as expected
+
+![A blue background button with white text](/blog/tailwind-nextjs/button.png)
+
+## Configuration
+
+Time to get some benefits from PostCSS plugins.
+
+### postcss-import
+
+I usually separate CSS files into chunks, like components. Then import them into the index file as the main entry-point.
+
+```css filename=index.css
+@import "./fontface.css";
+
+@tailwind base;
+/* Adding style to override `base` */
+@import "./custom-base.css";
+
+@tailwind components;
+/* Extracted components */
+@import "./button.css";
+
+@tailwind utilities;
+```
+
+There are several issues with this configuration.
+
+The `custom-base.css` will not work. At build-time, all the `@import` statements will move to the top of the code. This behavior is like [Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) in JavaScript.
+
+So the result in HTML output looks like this:
+
+```jsx
+<style>
+  {/* Content of fontface.css */}
+</style>
+<style>
+  {/* Content of custom-base.css */}
+</style>
+<style>
+  {/* Content of button.css */}
+</style>
+<style>
+  {/* Content of Tailwind */}
+</style>
+```
+
+One issue is the browser will make one network request for each single separated file. It costs 4 network requests with the current configuration. It’s not a good practice.
+
+To deal with these issues, I use [`postcss-import`](https://github.com/postcss/postcss-import) to inline `@import` rules content.
+
+First, include `postcss-import` to `postcss.config.js` plugins array.
+
+```js filename=postcss.config.js
+module.exports = {
+  plugins: [
+    // Should use as the first plugin of the list
+    "postcss-import",
+    "tailwindcss",
+  ],
+}
+```
+
+Then, change the content of the `index.css` file.
+
+```css filename=index.css
+@import "./fontface.css";
+
+@import "tailwindcss/base";
+@import "./custom-base.css";
+
+@import "tailwindcss/components";
+@import "./button.css";
+
+@import "tailwindcss/utilities";
+```
+
+I change `@tailwind` rules to `@import` because `@import` must precede all other statements. Otherwise, `postcss-import` will ignore `button.css` file.
+
+`postcss-import` is smart enough to look into the root directory or `node_modules` folder. So it knows where `tailwindcss` lives, I don’t have to provide the entire path.
+
+By inline all the content into one file, it costs only one network request in the browser.
+
+### postcss-preset-env
+
+I used to love working with `styled-components`. Because it supports scss-like syntax for nesting styles. It also adds vendor prefixes.
+
+With [`postcss-preset-env`](https://github.com/csstools/postcss-preset-env), I can have the same experience.
+
+It’s nice that `postcss-preset-env` includes CSS variables, nestings, and autoprefixer by default.
+
+```js filename=postcss.config.js
+module.exports = {
+  plugins: [
+    // Should use as the first plugin of the list
+    "postcss-import",
+    "tailwindcss",
+    /**
+     * Stage 0: Aspirational - This is a crazy idea.
+     * Stage 1: Experimental - This idea might not be crazy.
+     * Stage 2: Allowable - This idea is not crazy. (Default)
+     * Stage 3: Embraced - This idea is becoming part of the web.
+     * Stage 4: Standardized - This idea is part of the web.
+     * https://cssdb.org/#staging-process
+     */
+    ["postcss-preset-env", { stage: 1 }],
+
+    // Alternative to `postcss-preset-env`
+    // "postcss-nesting",
+    // "autoprefixer",
+  ],
+}
+```
+
+Now I can apply some sugar-syntax into my CSS files
+
+```css filename=button.css
+button {
+  &.btn {
+    /* styles for button.btn */
+
+    &.btn-primary {
+      /* styles for button.btn.btn-primary */
+    }
+
+    &:hover {
+      /* styles for button.btn:hover */
+    }
+  }
+}
+```
+
+## Optimization
+
+Creating an optimized production build, by running `yarn build`.
+The generated CSS file size is too heavy to serve on production.
+
+```
+/tailwind-nextjs/.next/static/css/1393d4dcf2c9c7cf7cb2.css
+
++--------------------------------------------------------------+
+| Size         | 823.72 KiB                                    |
+|--------------------------------------------------------------|
+| Gzipped      | 104.79 KiB                                    |
+|--------------------------------------------------------------|
+| Mime type    | text/css                                      |
++--------------------------------------------------------------+
+```
+
+There are several strategies for keeping generated CSS small and performant.
+
+I can remove unused CSS in the project by using [Purgecss](https://purgecss.com/).
+
+First, install `@fullhuman/postcss-purgecss`
+
+```sh filename=Terminal
+# Using Yarn
+yarn add -D @fullhuman/postcss-purgecss
+
+# Using npm
+npm i -D @fullhuman/postcss-purgecss
+```
+
+Then, edit `postcss.config.js` file
+
+```js filename=postcss.config.js
+const purgecss = [
+  "@fullhuman/postcss-purgecss",
+  {
+    // Specify the paths to all the template files in project
+    content: ["./src/**/*.js"],
+    // Include any special characters in this regular expression
+    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+  },
+]
+
+module.exports = {
+  plugins: [
+    "postcss-import",
+    "tailwindcss",
+    ["postcss-preset-env", { stage: 1 }],
+    // Only enable in production
+    ...(process.env.NODE_ENV === "production" ? [purgecss] : []),
+  ],
+}
+```
+
+Run `yarn build` again, and I have this
+
+```
+/tailwind-nextjs/.next/static/css/ff9f29072f7e88457366.css
+
++--------------------------------------------------------------+
+| Size         | 991 bytes                                     |
+|--------------------------------------------------------------|
+| Gzipped      | 522 bytes                                     |
+|--------------------------------------------------------------|
+| Mime type    | text/css                                      |
++--------------------------------------------------------------+
+```
+
+There must be something wrong, it’s too small. When viewing the output content, I find out that it does not include the content of `base` and `components`.
+
+To fix that, I add them to the whitelist range by a special comment.
+
+```css filename=index.css
+/* purgecss start ignore */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+/* purgecss end ignore */
+
+@import "tailwindcss/utilities";
+```
+
+Now it seems more reasonable.
+
+```
+/tailwind-nextjs/.next/static/css/7093c40c8c97f0c3d0b5.css
+
++--------------------------------------------------------------+
+| Size         | 3.7 KiB                                       |
+|--------------------------------------------------------------|
+| Gzipped      | 1.41 KiB                                      |
+|--------------------------------------------------------------|
+| Mime type    | text/css                                      |
++--------------------------------------------------------------+
+```
+
+There are more advanced strategies to add up, but it depends on how I configure Tailwind in the project.
+
+## Migration
+
+Before Next.js 9.2, I have to use [`@zeit/next-css`](https://github.com/zeit/next-plugins/tree/master/packages/next-css) to import CSS files in the project.
+
+After Next.js 9.2, an application can [import CSS files as global stylesheets](https://nextjs.org/blog/next-9-2#built-in-css-support-for-global-stylesheets).
+
+To upgrade the project, I remove `@zeit/next-css` out of the configuration.
+
+```js filename=next.config.js
+// Before 9.2
+const withCSS = require("@zeit/next-css")
+const nextConfig = {}
+
+module.exports = withCSS(nextConfig)
+
+// After 9.2
+const nextConfig = {}
+module.exports = nextConfig
+```
+
+One more issue is Next.js 9.2 does not understand the old `postcss.config.js` syntax. So I change the content by removing all the `require` keywords.
+
+```js filename=postcss.config.js
+// Before 9.2
+const purgecss = require("@fullhuman/postcss-purgecss")({
+  // purgecss options
+})
+
+module.exports = {
+  plugins: [
+    require("postcss-import"),
+    require("tailwindcss"),
+    require("postcss-preset-env")({ stage: 1 }),
+    ...(process.env.NODE_ENV === "production" ? [purgecss] : []),
+  ],
+}
+
+// After 9.2
+const purgecss = [
+  "@fullhuman/postcss-purgecss",
+  {
+    // purgecss options
+  },
+]
+
+module.exports = {
+  plugins: [
+    "postcss-import",
+    "tailwindcss",
+    ["postcss-preset-env", { stage: 1 }],
+    ...(process.env.NODE_ENV === "production" ? [purgecss] : []),
+  ],
+}
+```
+
+## Recommendation
+
+After a few months of working with Tailwind, I have some tips for improving the working experience.
+
+### Unknown at-rule
+
+By default, VSCode will make a warning on Tailwind directives. It might be annoying.
+
+To turn this off, I go to VSCode Settings and choose to `ignore` the using linter.
+
+### Tailwind CSS Intellisense
+
+Tailwind class name completion — [VSCode extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) by **Brad Cornes**.
+
+Feature includes:
+
+- `className` suggestion and preview base on Tailwind configuration in the project.
+- Syntax highlight and suggestion for Tailwind directives like `@apply`, `@screen` and `config()`.
+
+I don’t need to remember what Tailwind configuration contains anymore.
+
+### Headwind
+
+An opinionated class sorter for Tailwind — [VSCode extension](https://marketplace.visualstudio.com/items?itemName=heybourn.headwind) by **Ryan Heybourn**.
+
+It enforces consistent ordering of classes. Like Prettier for Tailwind.
+
+I like to keep `"headwind.runOnSave": true` on by default.
+
+### PostCSS Language Support
+
+Syntax highlighting for modern and experimental CSS in VSCode — [VSCode extension](https://marketplace.visualstudio.com/items?itemName=csstools.postcss) by **csstools**.
+
+It is perfect when using PostCSS plugins with the nesting feature.
+
+### Typed Tailwind
+
+If I use TypeScript, [Typed Tailwind](https://github.com/dvkndn/typed.tw) would be on my list packages to use with.
+
+It brings types to Tailwind by generating TypeScript classes from Tailwind configuration.
+
+![Typed Tailwind landing page](/blog/tailwind-nextjs/typed-tailwind.png)
+
+### Project Template
+
+I have uploaded this example project to GitHub. It’s running on CodeSandbox too.
+
+[Another project template](https://github.com/nhducit/battery-included-nextjs-template) for Tailwind with Next.js that I’m interested in is from **nhducit**. It already includes a full set example using TypeScript and many other features. Should take a look.

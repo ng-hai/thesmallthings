@@ -1,8 +1,6 @@
 import Router from "next/router"
 import Nprogress from "nprogress"
 
-import { pageView } from "../lib/gtag"
-
 Nprogress.configure({ showSpinner: false, minimum: 0.01, easing: "linear" })
 
 let timeout
@@ -25,10 +23,7 @@ function stopProgress() {
 
 Router.events.on("routeChangeError", stopProgress)
 Router.events.on("routeChangeStart", startProgress)
-Router.events.on("routeChangeComplete", url => {
-  stopProgress()
-  pageView(url)
-})
+Router.events.on("routeChangeComplete", stopProgress)
 
 // For using as a component
 export default () => null

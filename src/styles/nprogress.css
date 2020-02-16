@@ -2,7 +2,7 @@
 #nprogress {
   pointer-events: none;
 
-  .bar {
+  & .bar {
     background: theme("colors.primary");
     position: fixed;
     z-index: 1031;
@@ -13,13 +13,14 @@
   }
 
   /* Fancy blur effect */
-  .peg {
+  & .peg {
     display: block;
     position: absolute;
     right: 0px;
     width: 100px;
     height: 100%;
-    box-shadow: 0 0 10px theme("colors.primary"), 0 0 5px theme("colors.primary");
+    box-shadow: 0 0 10px theme("colors.primary"),
+      0 0 5px theme("colors.primary");
     opacity: 1;
     transform: rotate(3deg) translate(0px, -4px);
   }

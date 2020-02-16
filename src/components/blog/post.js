@@ -14,7 +14,7 @@ export default function Post(meta = {}) {
           <article>
             <SEO {...meta} />
             <h1>{meta.title}</h1>
-            {meta.date && <time>{meta.date}</time>}
+            {meta.date && <time className="block mt-1">{meta.date}</time>}
             {children}
           </article>
         </Page>

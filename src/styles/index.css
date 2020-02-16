@@ -1,7 +1,8 @@
-@import "./fontface.css";
+/* purgecss start ignore */
 @import "./reset.css";
-
-@import "tailwindcss/utilities";
-
+@import "./fontface.css";
 @import "./nprogress.css";
 @import "./article.css";
+/* purgecss end ignore */
+
+@import "tailwindcss/utilities";
