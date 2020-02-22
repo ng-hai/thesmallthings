@@ -25,15 +25,6 @@ html {
   }
 }
 
-@supports (font-variation-settings: normal) {
-  html,
-  input,
-  select,
-  textarea {
-    @apply font-sans-alt;
-  }
-}
-
 body {
   margin: 0;
 }
@@ -101,5 +92,14 @@ textarea {
 
   &:invalid {
     box-shadow: none;
+  }
+}
+
+@supports (font-variation-settings: normal) {
+  html,
+  input,
+  select,
+  textarea {
+    @apply font-sans-alt;
   }
 }
