@@ -3,8 +3,8 @@ import Head from "next/head"
 const config = {
   author: "Hai Nguyen",
   url: "http://thesmallthings.dev",
-  title: "The Small Things — Little corner on the Internet",
-  description: "Personal website by Hai Nguyen.",
+  title: "The Small Things — Personal website by Hai Nguyen",
+  description: "I write about front-end development stuffs.",
   image: "/assets/images/cover.png",
 }
 
