@@ -3,12 +3,14 @@ import Link from "next/link"
 
 import { importAll } from "../../utils"
 import Page from "../../components/page"
+import SEO from "../../components/seo"
 
 const postList = importAll(require.context(".", true, /.mdx?$/))
 
 export default function BlogListing() {
   return (
     <Page className="pb-10">
+      <SEO title="Blog — The Small Things" />
       <div className="mx-auto max-w-line-length">
         <ul>
           {postList.map(({ meta }, index) => (
