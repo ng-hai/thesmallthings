@@ -1,5 +1,10 @@
 module.exports = {
+  purge: ["./src/**/*.js"],
   theme: {
+    container: {
+      center: true,
+      padding: "1rem",
+    },
     colors: {
       white: "#FFFFFF",
       black: "#24292E",

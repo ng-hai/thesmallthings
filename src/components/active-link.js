@@ -2,7 +2,7 @@ import React from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-export default function ActiveLink({ children, ...props }) {
+export default function ActiveLink({ children, className, ...props }) {
   const router = useRouter()
 
   function isActive() {
@@ -16,9 +16,26 @@ export default function ActiveLink({ children, ...props }) {
     return route === path
   }
 
+  function isExternalLink(value) {
+    return String(value).startsWith("http")
+  }
+
+  if (isExternalLink(props.href)) {
+    return (
+      <a
+        {...props}
+        className={className}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children(false)}
+      </a>
+    )
+  }
+
   return (
     <Link {...props}>
-      <a>{children(isActive())}</a>
+      <a className={className}>{children(isActive())}</a>
     </Link>
   )
 }

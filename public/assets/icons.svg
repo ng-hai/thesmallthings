@@ -43,4 +43,12 @@
   <symbol id="message-square" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   </symbol>
+  <symbol id="github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  </symbol>
+  <symbol id="logo-light" fill="none" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <path d="m12 12h488v488h-488z" fill="#fff"/>
+    <path d="m147.243 267.341c37.329 0 60.341-27.102 60.341-72.614 0-45-23.012-71.591-60.341-71.591-37.33 0-60.341 26.591-60.341 71.591 0 45.512 23.011 72.614 60.341 72.614zm0-21.989c-19.943 0-32.727-17.386-32.727-50.625 0-32.216 12.784-49.602 32.727-49.602s32.727 17.386 32.727 49.602c0 33.239-12.784 50.625-32.727 50.625zm16.811 141.648h29.148l180-261.818h-29.148zm226.119-139.091h-26.08c-.511 9.716-14.318 23.523-33.75 23.523v21.477c17.386 0 28.636-8.182 31.705-12.273h1.534v106.364h26.591z" fill="#24292e"/>
+    <path d="m12 12h488v488h-488z" stroke="#24292e" stroke-width="24"/>
+  </symbol>
 </svg>

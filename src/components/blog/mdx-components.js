@@ -1,24 +1,24 @@
 import NextLink from "next/link"
-import classnames from "classnames"
+import classcat from "classcat"
 
 const CodeBlock = ({ children, filename }) => {
   return (
     <div
-      className={classnames(
+      className={classcat([
         "mb-10 mt-4 pb-4 overflow-x-auto border border-mid-gray rounded-sm",
         {
           "pt-12": filename,
           "pt-4": !filename,
         },
-      )}
+      ])}
     >
       {filename && (
         <div className="absolute top-0 left-0 flex items-center w-full h-10 px-4 select-none">
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <svg width="54" height="14">
               <use xlinkHref="/assets/icons.svg#control" />
             </svg>
-          </div>
+          </div> */}
           <div className="flex-1 text-center text-dark-gray">{filename}</div>
         </div>
       )}

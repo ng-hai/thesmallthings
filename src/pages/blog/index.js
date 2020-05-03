@@ -8,7 +8,7 @@ const postList = importAll(require.context(".", true, /.mdx?$/))
 
 export default function BlogListing() {
   return (
-    <Page className="px-4 pb-10">
+    <Page className="pb-10">
       <div className="mx-auto max-w-line-length">
         <ul>
           {postList.map(({ meta }, index) => (

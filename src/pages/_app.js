@@ -3,11 +3,13 @@ import "lazysizes/plugins/attrchange/ls.attrchange"
 import React from "react"
 import App from "next/app"
 import Head from "next/head"
+import Link from "next/link"
+import classcat from "classcat"
 
 import "../styles/index.css"
 import SEO from "../components/seo"
-import Sidebar from "../components/sidebar"
 import Nprogress from "../components/nprogress"
+import ActiveLink from "../components/active-link"
 import BottomNavigation from "../components/bottom-navigation"
 
 import { menus } from "../constants"
@@ -44,11 +46,55 @@ export default class extends App {
         </Head>
         <SEO />
         <div className="w-full text-black bg-white">
-          <Sidebar menus={menus} className="hidden desktop:flex" />
-          <main className="pb-16 desktop:ml-64">
-            <Component {...pageProps} />
+          <header className="w-full">
+            <div className="container flex items-center justify-between h-16">
+              <Link href="/">
+                <a>
+                  <svg width="32" height="32">
+                    <use
+                      href="/assets/icons.svg#logo-light"
+                      xlinkHref="/assets/icons.svg#logo-light"
+                    />
+                  </svg>
+                </a>
+              </Link>
+
+              <nav className="hidden tablet:block">
+                <div className="flex items-center">
+                  {menus.map((item) => {
+                    return (
+                      <ActiveLink
+                        className="ml-8"
+                        key={item.path}
+                        href={item.path}
+                      >
+                        {(active) => (
+                          <span
+                            className={classcat([
+                              active ? "text-primary" : "text-black",
+                            ])}
+                          >
+                            {item.title}
+                          </span>
+                        )}
+                      </ActiveLink>
+                    )
+                  })}
+                </div>
+              </nav>
+            </div>
+          </header>
+
+          <main className="pb-16">
+            <div className="container">
+              <Component {...pageProps} />
+            </div>
           </main>
-          <BottomNavigation menus={menus} className="desktop:hidden" />
+
+          <BottomNavigation
+            menus={menus}
+            className="fixed bottom-0 left-0 tablet:hidden"
+          />
           <Nprogress />
         </div>
       </React.StrictMode>

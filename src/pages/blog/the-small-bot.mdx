@@ -138,9 +138,9 @@ export default async (req, res) => {
       text: `“${message}”\n— ${name} <${email}>`,
     }),
   })
-    .then(response => response.json())
-    .then(data => res.status(200).json(data))
-    .catch(err => res.status(500).json(err))
+    .then((response) => response.json())
+    .then((data) => res.status(200).json(data))
+    .catch((err) => res.status(500).json(err))
 }
 ```
 
@@ -227,9 +227,4 @@ now secret add -- thesmallthings.chat-id "`cat chat-id.txt`"
 
 The `cat chat-id.txt` takes the content of the `chat-id.txt` file and pastes it into the command line for me.
 
-## What I’ve learned
-
-Through the development journey, there are two new things to me:
-
-1. Telegram Bots API. It’s a fun thing to try, even though I only use a small part of the API. I will extend the bot in the future.
-2. Now Secrets cannot add values containing dashes for now.
+And, what’s done is done. Now I have an helpful way to receive messages from anyone.

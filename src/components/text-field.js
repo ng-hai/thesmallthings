@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classcat from "classcat"
 
 export default function TextField({
   multiline,
@@ -10,7 +10,7 @@ export default function TextField({
 }) {
   const hasError = Boolean(errorText)
   return (
-    <label className={classnames("block", className)}>
+    <label className={classcat(["block", className])}>
       {label && <div className="font-semibold">{label}</div>}
       {helpText && (
         <div className="text-xs tracking-wide text-dark-gray">{helpText}</div>
@@ -19,26 +19,26 @@ export default function TextField({
         <input
           type="text"
           {...props}
-          className={classnames(
+          className={classcat([
             "w-full h-10 px-3 mt-1 text-base border focus:border-black",
             {
               "border-mid-gray": !hasError,
               "border-error": hasError,
             },
-          )}
+          ])}
         />
       )}
       {multiline && (
         <textarea
           rows="8"
           {...props}
-          className={classnames(
+          className={classcat([
             "w-full px-3 py-2 mt-1 text-base border focus:border-black",
             {
               "border-mid-gray": !hasError,
               "border-error": hasError,
             },
-          )}
+          ])}
         />
       )}
       {hasError && (

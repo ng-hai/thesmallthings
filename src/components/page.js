@@ -9,7 +9,6 @@ export default function Page(props) {
       {...props}
       initial="incoming"
       animate="enter"
-      className="p-4 tablet:p-6"
     />
   )
 }

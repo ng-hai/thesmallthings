@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classcat from "classcat"
 
 import ActiveLink from "./active-link"
 
@@ -6,24 +6,24 @@ export default function BottomNavigation({ menus, ...props }) {
   return (
     <nav
       {...props}
-      className={classnames(
-        "fixed bottom-0 left-0 w-full h-16 bg-white border-t border-mid-gray select-none",
+      className={classcat([
+        "w-full h-16 bg-white border-t border-mid-gray select-none",
         props.className,
-      )}
+      ])}
     >
       <div className="flex justify-between w-full max-w-sm px-2 mx-auto">
-        {menus.map(item => {
+        {menus.map((item) => {
           return (
             <ActiveLink key={item.path} href={item.path}>
-              {active => (
+              {(active) => (
                 <div
-                  className={classnames(
+                  className={classcat([
                     "flex flex-col items-center justify-center w-16 h-16 relative",
                     {
                       "text-black": !active,
                       "text-primary": active,
                     },
-                  )}
+                  ])}
                 >
                   <svg
                     width="20"

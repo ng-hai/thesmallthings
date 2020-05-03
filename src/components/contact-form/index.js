@@ -1,5 +1,5 @@
 import React from "react"
-import classnames from "classnames"
+import classcat from "classcat"
 import { Formik, Form } from "formik"
 import fetch from "isomorphic-unfetch"
 
@@ -11,11 +11,11 @@ export default function ContactForm({ children, ...props }) {
     name: "",
   })
 
-  const validateName = value => {
+  const validateName = (value) => {
     return !String(value).trim() ? "Name is required" : ""
   }
 
-  const validateEmail = value => {
+  const validateEmail = (value) => {
     if (!String(value).trim()) {
       return "Email is required"
     }
@@ -25,7 +25,7 @@ export default function ContactForm({ children, ...props }) {
     }
   }
 
-  const validateMessage = value => {
+  const validateMessage = (value) => {
     return !String(value).trim() ? "Message is required" : ""
   }
 
@@ -37,7 +37,7 @@ export default function ContactForm({ children, ...props }) {
       body: JSON.stringify(values),
     })
       .then(() => setState({ sent: true, name: values.name }))
-      .catch(err => actions.setFieldError("server", err.message))
+      .catch((err) => actions.setFieldError("server", err.message))
       .finally(() => {
         actions.setSubmitting(false)
         actions.resetForm()
@@ -61,7 +61,7 @@ export default function ContactForm({ children, ...props }) {
   }
 
   return (
-    <div {...props} className={classnames("w-full bg-white", props.className)}>
+    <div {...props} className={classcat(["w-full bg-white", props.className])}>
       <Formik
         validateOnBlur={false}
         initialValues={{

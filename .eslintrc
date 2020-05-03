@@ -5,15 +5,12 @@
     "markdownExtensions": [".md", ".mdx"]
   },
   "extends": [
-    "standard",
-    "standard-react",
+    "react-app",
     "plugin:prettier/recommended",
     "plugin:mdx/recommended"
   ],
   "plugins": ["react-hooks"],
   "rules": {
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "react/jsx-pascal-case": "off"

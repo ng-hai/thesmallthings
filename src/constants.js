@@ -37,11 +37,6 @@ export const menus = [
     icon: "home",
   },
   {
-    title: "About",
-    path: "/about",
-    icon: "user",
-  },
-  {
     title: "Blog",
     path: "/blog",
     icon: "file-text",
@@ -55,5 +50,10 @@ export const menus = [
     title: "Contact",
     path: "/contact",
     icon: "message-square",
+  },
+  {
+    title: "GitHub",
+    path: "https://github.com/ng-hai",
+    icon: "github",
   },
 ]
