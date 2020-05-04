@@ -15,17 +15,15 @@ export default function BlogListing() {
         <ul>
           {postList.map(({ meta }, index) => (
             <Link href={meta.slug} key={index}>
-              <a>
-                <li className="mt-10 text-xl">
-                  <time className="text-sm">{meta.date}</time>
-                  <h2 className="text-xl font-bold leading-tight tablet:text-2xl desktop:text-4xl hover:text-primary">
-                    {meta.title}
-                  </h2>
-                  <p className="mt-1 text-base tablet:text-lg desktop:text-xl">
-                    {meta.description}
-                  </p>
-                </li>
-              </a>
+              <li className="mt-10 text-xl hover:cursor-pointer group">
+                <time className="text-sm">{meta.date}</time>
+                <h2 className="text-xl font-bold leading-tight tablet:text-2xl desktop:text-4xl group-hover:text-primary">
+                  {meta.title}
+                </h2>
+                <p className="mt-1 text-base tablet:text-lg desktop:text-xl">
+                  {meta.description}
+                </p>
+              </li>
             </Link>
           ))}
         </ul>
