@@ -14,7 +14,7 @@ export default function BlogListing() {
       <div className="mx-auto max-w-line-length">
         {postList.map(({ meta }, index) => (
           <Link href={meta.slug} key={index}>
-            <a className="mt-10 text-xl hover:cursor-pointer group">
+            <a className="block mt-10 text-xl hover:cursor-pointer group">
               <time className="text-sm">{meta.date}</time>
               <h2 className="text-xl font-bold leading-tight tablet:text-2xl desktop:text-4xl group-hover:text-primary">
                 {meta.title}
