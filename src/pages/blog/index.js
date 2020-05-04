@@ -12,21 +12,19 @@ export default function BlogListing() {
     <Page className="pb-10">
       <SEO title="Blog — The Small Things" />
       <div className="mx-auto max-w-line-length">
-        <ul>
-          {postList.map(({ meta }, index) => (
-            <Link href={meta.slug} key={index}>
-              <li className="mt-10 text-xl hover:cursor-pointer group">
-                <time className="text-sm">{meta.date}</time>
-                <h2 className="text-xl font-bold leading-tight tablet:text-2xl desktop:text-4xl group-hover:text-primary">
-                  {meta.title}
-                </h2>
-                <p className="mt-1 text-base tablet:text-lg desktop:text-xl">
-                  {meta.description}
-                </p>
-              </li>
-            </Link>
-          ))}
-        </ul>
+        {postList.map(({ meta }, index) => (
+          <Link href={meta.slug} key={index}>
+            <a className="mt-10 text-xl hover:cursor-pointer group">
+              <time className="text-sm">{meta.date}</time>
+              <h2 className="text-xl font-bold leading-tight tablet:text-2xl desktop:text-4xl group-hover:text-primary">
+                {meta.title}
+              </h2>
+              <p className="mt-1 text-base tablet:text-lg desktop:text-xl">
+                {meta.description}
+              </p>
+            </a>
+          </Link>
+        ))}
       </div>
     </Page>
   )
