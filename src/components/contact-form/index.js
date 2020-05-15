@@ -1,7 +1,6 @@
 import React from "react"
 import classcat from "classcat"
 import { Formik, Form } from "formik"
-import fetch from "isomorphic-unfetch"
 
 import { FormikTextField } from "../formik-components"
 

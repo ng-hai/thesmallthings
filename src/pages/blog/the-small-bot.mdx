@@ -112,8 +112,6 @@ If I don’t use Next.js, I could do this functionality with [Zeit Serverless Fu
 The function looks like this:
 
 ```js filename=messages.js
-import fetch from "isomorphic-unfetch"
-
 export default async (req, res) => {
   const { name, message, email } = req.body
 

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 
-import { pageTranstion } from "../constants"
+import { pageTranstion } from "config"
 
 export default function Page(props) {
   return (

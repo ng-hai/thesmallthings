@@ -6,13 +6,13 @@ import Head from "next/head"
 import Link from "next/link"
 import classcat from "classcat"
 
-import "../styles/index.css"
-import SEO from "../components/seo"
-import Nprogress from "../components/nprogress"
-import ActiveLink from "../components/active-link"
-import BottomNavigation from "../components/bottom-navigation"
+import "styles/index.css"
+import SEO from "components/seo"
+import Nprogress from "components/nprogress"
+import ActiveLink from "components/active-link"
+import BottomNavigation from "components/bottom-navigation"
 
-import { menus } from "../constants"
+import { menus } from "config"
 
 export default class extends App {
   render() {

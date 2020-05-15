@@ -1,5 +1,3 @@
-import fetch from "isomorphic-unfetch"
-
 export default async (req, res) => {
   const { name, message, email } = req.body
 
@@ -24,7 +22,7 @@ export default async (req, res) => {
       text: `“${message}”\n— ${name} <${email}>`,
     }),
   })
-    .then(response => response.json())
-    .then(data => res.status(200).json(data))
-    .catch(err => res.status(500).json(err))
+    .then((response) => response.json())
+    .then((data) => res.status(200).json(data))
+    .catch((err) => res.status(500).json(err))
 }

@@ -1,9 +1,9 @@
 import React from "react"
 import Link from "next/link"
 
-import { importAll } from "../../utils"
-import Page from "../../components/page"
-import SEO from "../../components/seo"
+import { importAll } from "utils"
+import Page from "components/page"
+import SEO from "components/seo"
 
 const postList = importAll(require.context(".", true, /.mdx?$/))
 

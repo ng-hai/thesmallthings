@@ -1,9 +1,9 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 
-import { postTranstion } from "../../constants"
-import Page from "../page"
-import SEO from "../seo"
+import { postTranstion } from "config"
+import Page from "components/page"
+import SEO from "components/seo"
 import components from "./mdx-components"
 
 export default function Post(meta = {}) {
