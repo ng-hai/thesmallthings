@@ -26,11 +26,7 @@ export default function SEO({
 
       {/* OpenGraph tags */}
       <meta key="og:url" property="og:url" content={url} />
-      <meta
-        key="og:type"
-        property="og:type"
-        content={slug ? "article" : "website"}
-      />
+      <meta key="og:type" property="og:type" content="website" />
       <meta key="og:title" property="og:title" content={title} />
       <meta
         key="og:description"
