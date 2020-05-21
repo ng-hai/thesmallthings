@@ -1,7 +1,7 @@
 import Post from "../../components/blog/post"
 
 export const meta = {
-  date: "February 17, 2020",
+  date: "February 17, 2020 - Present",
   slug: "/blog/tailwind-nextjs",
   title: "Using Tailwind CSS in a Next.js project",
   description:
@@ -9,6 +9,8 @@ export const meta = {
 }
 
 export default Post(meta)
+
+# Using Tailwind CSS in a Next.js project
 
 In this post, I will share the way how I set up Tailwind in a Next.js project.
 Including recommended tips, extensions, and tools.
@@ -32,11 +34,11 @@ Binaries:
   npm: 6.9.0
 
 npmPackages:
-  next: ^9.2.0
-  tailwindcss: ^1.2.0
+  next: 9.4.2
+  tailwindcss: 1.4.6
 ```
 
-When writing this post, Tailwind and Next.js have released a new version. I still cover the migration guide for projects before Next.js 9.2.
+I will try to keep `npmPackages` versions up-to-date.
 
 ## Installation
 
@@ -63,18 +65,31 @@ tailwind-nextjs
 │ ├── components
 │ └── pages
 ├── .gitignore
+├── jsconfig.json
 ├── package.json
 └── yarn.lock
+```
+
+I create `jsconfig.json` file to use [Absolute Imports and Aliases](https://nextjs.org/blog/next-9-4#absolute-imports-and-aliases)
+
+```json filename=jsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": "./src"
+  }
+}
 ```
 
 Continue to install Tailwind and PostCSS plugins.
 
 ```sh filename=Terminal
 # Using Yarn
-yarn add -D tailwindcss postcss-import postcss-preset-env
+yarn add tailwindcss
+yarn add --dev postcss-import postcss-preset-env
 
 # Using npm
-npm install -D tailwindcss postcss-import postcss-preset-env
+npm install tailwindcss
+npm install --save-dev postcss-import postcss-preset-env
 ```
 
 `postcss-import` and `postcss-preset-env` are optional plugins. I will explain in the configuration step.
@@ -101,7 +116,7 @@ Then override the default `next/app` in `./src/pages/_app.js` file.
 This makes Tailwind available to every pages or components.
 
 ```js filename=_app.js
-import "../styles/index.css"
+import "styles/index.css"
 
 export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />
@@ -277,37 +292,14 @@ There are several strategies for keeping generated CSS small and performant.
 
 I can remove unused CSS in the project by using [Purgecss](https://purgecss.com/).
 
-First, install `@fullhuman/postcss-purgecss`
+Because Tailwind has built-in PurgeCSS, simply add an option in `tailwind.config.js`
 
-```sh filename=Terminal
-# Using Yarn
-yarn add -D @fullhuman/postcss-purgecss
-
-# Using npm
-npm install -D @fullhuman/postcss-purgecss
-```
-
-Then, edit `postcss.config.js` file
-
-```js filename=postcss.config.js
-const purgecss = [
-  "@fullhuman/postcss-purgecss",
-  {
-    // Specify the paths to all the template files in project
-    content: ["./src/**/*.js"],
-    // Include any special characters in this regular expression
-    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-  },
-]
-
+```js filename=tailwind.config.js
 module.exports = {
-  plugins: [
-    "postcss-import",
-    "tailwindcss",
-    ["postcss-preset-env", { stage: 1 }],
-    // Only enable in production
-    ...(process.env.NODE_ENV === "production" ? [purgecss] : []),
-  ],
+  purge: ["./src/**/*.js"],
+  theme: {},
+  variants: {},
+  plugins: [],
 }
 ```
 
@@ -353,61 +345,6 @@ Now it seems more reasonable.
 ```
 
 There are more advanced strategies to add up, but it depends on how I configure Tailwind in the project.
-
-## Migration
-
-Before Next.js 9.2, I have to use [`@zeit/next-css`](https://github.com/zeit/next-plugins/tree/master/packages/next-css) to import CSS files in the project.
-
-After Next.js 9.2, an application can [import CSS files as global stylesheets](https://nextjs.org/blog/next-9-2#built-in-css-support-for-global-stylesheets).
-
-To upgrade the project, I remove `@zeit/next-css` out of the configuration.
-
-```js filename=next.config.js
-// Before 9.2
-const withCSS = require("@zeit/next-css")
-const nextConfig = {}
-
-module.exports = withCSS(nextConfig)
-
-// After 9.2
-const nextConfig = {}
-module.exports = nextConfig
-```
-
-One more issue is Next.js 9.2 does not understand the old `postcss.config.js` syntax. So I change the content by removing all the `require` keywords.
-
-```js filename=postcss.config.js
-// Before 9.2
-const purgecss = require("@fullhuman/postcss-purgecss")({
-  // purgecss options
-})
-
-module.exports = {
-  plugins: [
-    require("postcss-import"),
-    require("tailwindcss"),
-    require("postcss-preset-env")({ stage: 1 }),
-    ...(process.env.NODE_ENV === "production" ? [purgecss] : []),
-  ],
-}
-
-// After 9.2
-const purgecss = [
-  "@fullhuman/postcss-purgecss",
-  {
-    // purgecss options
-  },
-]
-
-module.exports = {
-  plugins: [
-    "postcss-import",
-    "tailwindcss",
-    ["postcss-preset-env", { stage: 1 }],
-    ...(process.env.NODE_ENV === "production" ? [purgecss] : []),
-  ],
-}
-```
 
 ## Recommendation
 
@@ -456,4 +393,4 @@ It brings types to Tailwind by generating TypeScript classes from Tailwind confi
 
 I have uploaded [this example project](https://github.com/ng-hai/tailwind-nextjs) to GitHub. It’s running on [CodeSandbox](https://codesandbox.io/s/github/ng-hai/tailwind-nextjs) too.
 
-[Another project template](https://github.com/nhducit/battery-included-nextjs) for Tailwind with Next.js that I’m interested in is from **nhducit**. It already includes a full set example using TypeScript and many other features. Should take a look.
+[Another project template](https://github.com/nhducit/battery-included-nextjs) for Tailwind with Next.js that I’m interested in is from **nhducit**. It already includes a full set example using TypeScript and many other features.

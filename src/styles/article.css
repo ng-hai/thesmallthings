@@ -1,5 +1,5 @@
 article {
-  @apply mx-auto break-words max-w-line-length;
+  @apply mx-auto mt-8 break-words max-w-line-length;
 
   & h1,
   & h2,
@@ -25,7 +25,7 @@ article {
   }
 
   & h1 {
-    @apply mt-8 text-3xl;
+    @apply text-3xl;
 
     @screen tablet {
       @apply text-5xl;
