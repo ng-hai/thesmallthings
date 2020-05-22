@@ -2,7 +2,7 @@ import React from "react"
 import classcat from "classcat"
 import { Formik, Form } from "formik"
 
-import { FormikTextField } from "../formik-components"
+import { FormikTextField } from "components/formik-components"
 
 export default function ContactForm({ children, ...props }) {
   const [state, setState] = React.useState({
