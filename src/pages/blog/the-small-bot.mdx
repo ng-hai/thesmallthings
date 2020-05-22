@@ -1,4 +1,5 @@
-import Post from "../../components/blog/post"
+import Post from "components/blog/post"
+import ContactForm from "components/contact-form"
 
 export const meta = {
   date: "January 22, 2020",
@@ -102,7 +103,7 @@ The configuration for Telegram is done. I need a UI to apply that functionality,
 
 A meaningful message needs to have sender name, email and message content. As Telegram supports message formatting (Markdown & HTML), I come up with this interface.
 
-![A form with two text fields, one textarea and a submit button](/blog/the-small-bot/contact-form-ui.png "Contact Form UI")
+<ContactForm className="my-8" style={{ maxWidth: 480 }} />
 
 On the client-side, I use [Formik](https://jaredpalmer.com/formik/) – a form validation library. When submitting the form, it calls an internal API, which is a simple serverless function.
 
