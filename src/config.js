@@ -53,7 +53,7 @@ export const menus = [
   },
   {
     title: "GitHub",
-    path: "https://github.com/ng-hai",
+    path: "https://github.com/ng-hai/thesmallthings",
     icon: "github",
   },
 ]
