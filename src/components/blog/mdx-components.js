@@ -50,8 +50,8 @@ const Paragraph = ({ children, ...props }) => {
   return <p {...props}>{children}</p>
 }
 
-const Link = ({ href, ...props }) => {
-  if (props.children.length < 1) {
+const Link = ({ href, children, ...props }) => {
+  if (children.length < 1) {
     return null
   }
 
@@ -63,13 +63,17 @@ const Link = ({ href, ...props }) => {
         target="_blank"
         rel="noopener noreferrer"
         className="no-underline text-primary"
-      />
+      >
+        {children}
+      </a>
     )
   }
 
   return (
     <NextLink href={href}>
-      <a {...props} className="no-underline text-primary" />
+      <a {...props} className="no-underline text-primary">
+        {children}
+      </a>
     </NextLink>
   )
 }

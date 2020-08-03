@@ -1,10 +1,10 @@
 article {
-  @apply mx-auto mt-8 break-words max-w-line-length;
+  @apply mx-auto break-words max-w-line-length;
 
   & h1,
   & h2,
   & h3 {
-    @apply relative font-bold leading-tight;
+    @apply font-bold leading-tight;
   }
 
   & h2,

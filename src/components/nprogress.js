@@ -26,4 +26,6 @@ Router.events.on("routeChangeStart", startProgress)
 Router.events.on("routeChangeComplete", stopProgress)
 
 // For using as a component
-export default () => null
+export default function NProgress() {
+  return null
+}

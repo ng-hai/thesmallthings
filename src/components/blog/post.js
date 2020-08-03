@@ -10,10 +10,10 @@ export default function Post(meta = {}) {
   return ({ children }) => {
     return (
       <MDXProvider components={components}>
-        <Page variants={postTranstion} className="pb-8">
+        <Page variants={postTranstion} className="mt-8">
           <article>
             <SEO {...meta} />
-            {meta.date && <time className="block mt-1">{meta.date}</time>}
+            {meta.date && <time className="block">{meta.date}</time>}
             {children}
           </article>
         </Page>

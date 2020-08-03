@@ -19,9 +19,7 @@ export default function ContactForm({ children, ...props }) {
       return "Email is required"
     }
 
-    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-      return "Invalid email address"
-    }
+    return ""
   }
 
   const validateMessage = (value) => {
@@ -62,7 +60,6 @@ export default function ContactForm({ children, ...props }) {
   return (
     <div {...props} className={classcat(["w-full bg-white", props.className])}>
       <Formik
-        validateOnBlur={false}
         initialValues={{
           name: "",
           email: "",
@@ -72,12 +69,13 @@ export default function ContactForm({ children, ...props }) {
         onSubmit={submitForm}
       >
         {({ errors, isSubmitting }) => (
-          <Form>
+          <Form noValidate>
             <FormikTextField name="name" label="Name" validate={validateName} />
             <FormikTextField
               name="email"
               label="Email"
               type="email"
+              helpText="Telegram username could be accepted (e.g @your_username)"
               className="mt-4"
               validate={validateEmail}
             />

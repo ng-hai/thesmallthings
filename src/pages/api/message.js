@@ -11,6 +11,9 @@ export default async (req, res) => {
     return
   }
 
+  // https://core.telegram.org/bots/api#markdownv2-style
+  const escapedEmail = email.replace(/_/g, "\\_")
+
   fetch(`https://api.telegram.org/bot${process.env.botToken}/sendMessage`, {
     method: "POST",
     headers: {
@@ -19,10 +22,10 @@ export default async (req, res) => {
     body: JSON.stringify({
       chat_id: process.env.chatId,
       parse_mode: "Markdown",
-      text: `“${message}”\n— ${name} <${email}>`,
+      text: `“${message}”\n— ${name} <${escapedEmail}>`,
     }),
   })
     .then((response) => response.json())
     .then((data) => res.status(200).json(data))
-    .catch((err) => res.status(500).json(err))
+    .catch((err) => res.status(err.status).json(err))
 }
