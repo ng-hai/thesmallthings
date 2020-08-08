@@ -5,7 +5,6 @@
 *,
 *::before,
 *::after {
-  @apply border-solid;
   border-width: 0;
   box-sizing: border-box;
   scrollbar-width: thin;
@@ -18,11 +17,6 @@ html {
   /* Prevent adjustments of font size after orientation changes in iOS. */
   -webkit-text-size-adjust: 100%;
   font-feature-settings: "cpsp", "frac", "salt", "ss02", "calt", "liga", "kern";
-  @apply font-sans antialiased;
-
-  ::selection {
-    @apply bg-columbia;
-  }
 }
 
 body {
@@ -93,14 +87,5 @@ textarea {
 
   &:invalid {
     box-shadow: none;
-  }
-}
-
-@supports (font-variation-settings: normal) {
-  html,
-  input,
-  select,
-  textarea {
-    @apply font-sans-alt;
   }
 }

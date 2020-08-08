@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }) {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <SEO />
-      <div className="w-full text-black bg-white">
+      <div className="min-h-full font-sans antialiased text-black bg-light-gray">
         <header className="w-full">
           <div className="container flex items-center justify-between h-16">
             <Link href="/">

@@ -7,3 +7,26 @@
 /* purgecss end ignore */
 
 @import "tailwindcss/utilities";
+
+*,
+*::before,
+*::after {
+  @apply border-solid;
+}
+
+tt,
+code,
+kbd,
+samp {
+  @apply font-mono;
+}
+
+::selection {
+  @apply bg-columbia;
+}
+
+html,
+body,
+#__next {
+  @apply h-full;
+}

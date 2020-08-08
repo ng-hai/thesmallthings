@@ -63,7 +63,7 @@ article {
   & p,
   & li,
   & em {
-    @apply mt-4 leading-relaxed;
+    @apply mt-4 leading-relaxed tracking-wide;
 
     @screen tablet {
       @apply text-lg;
@@ -87,15 +87,19 @@ article {
   }
 
   & pre {
-    font-size: 13.5px;
+    font-size: 12.8px;
     word-spacing: normal;
     tab-size: 2;
     hyphens: none;
-    @apply relative font-mono font-medium text-left;
+    @apply relative font-mono text-left bg-white;
 
     & code::before,
     & code::after {
       display: none;
+    }
+
+    @screen tablet {
+      font-size: 14px;
     }
   }
 

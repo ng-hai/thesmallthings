@@ -1,4 +1,5 @@
-import Post from "../../components/blog/post"
+import Post from "components/blog/post"
+import { Image } from "components/blog/mdx-components"
 
 export const meta = {
   date: "February 17, 2020",
@@ -131,7 +132,7 @@ Finally, replace `./src/pages/index.js` with below content to test if Tailwind i
 const Home = () => {
   return (
     <div className="p-4">
-      <button class="px-4 py-2 font-bold text-white bg-blue-500 rounded">
+      <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded">
         Button
       </button>
     </div>
@@ -143,7 +144,11 @@ export default Home
 
 Starting development server and I have a blue button as expected
 
-![A blue background button with white text](/blog/tailwind-nextjs/button.png)
+<Image
+  alt="A blue background button with white text"
+  src="/blog/tailwind-nextjs/button.png"
+  style={{ width: 85 }}
+/>
 
 ## Configuration
 

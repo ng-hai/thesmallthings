@@ -13,7 +13,9 @@ export default function Post(meta = {}) {
         <Page variants={postTranstion} className="mt-8">
           <article>
             <SEO {...meta} />
-            {meta.date && <time className="block">{meta.date}</time>}
+            {meta.date && (
+              <time className="block tracking-wide">{meta.date}</time>
+            )}
             {children}
           </article>
         </Page>

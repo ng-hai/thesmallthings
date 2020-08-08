@@ -1,7 +1,7 @@
 import NextLink from "next/link"
 import classcat from "classcat"
 
-const CodeBlock = ({ children, filename }) => {
+export const CodeBlock = ({ children, filename }) => {
   return (
     <div
       className={classcat([
@@ -27,7 +27,7 @@ const CodeBlock = ({ children, filename }) => {
   )
 }
 
-const Image = ({ title, src, alt, ...props }) => {
+export const Image = ({ title, src, alt, ...props }) => {
   return (
     <figure className="flex flex-col items-center max-w-full my-10 tablet:my-12 desktop:my-16">
       <img {...props} alt={alt} data-src={src} className="lazyload" />
@@ -40,7 +40,7 @@ const Image = ({ title, src, alt, ...props }) => {
   )
 }
 
-const Paragraph = ({ children, ...props }) => {
+export const Paragraph = ({ children, ...props }) => {
   // This will prevent the validateDOM error
   // e.g. <figure> insise <p> tag
   if (children.type && children.type.displayName) {
@@ -50,7 +50,7 @@ const Paragraph = ({ children, ...props }) => {
   return <p {...props}>{children}</p>
 }
 
-const Link = ({ href, children, ...props }) => {
+export const Link = ({ href, children, ...props }) => {
   if (children.length < 1) {
     return null
   }
@@ -78,7 +78,7 @@ const Link = ({ href, children, ...props }) => {
   )
 }
 
-const Heading = ({ as: Component }) => ({ children, id }) => {
+export const Heading = ({ as: Component }) => ({ children, id }) => {
   return (
     <Component>
       <span id={id} className="absolute invisible block pt-8 -mt-8" />

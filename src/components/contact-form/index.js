@@ -58,7 +58,7 @@ export default function ContactForm({ children, ...props }) {
   }
 
   return (
-    <div {...props} className={classcat(["w-full bg-white", props.className])}>
+    <div {...props} className={classcat(["w-full", props.className])}>
       <Formik
         initialValues={{
           name: "",
