@@ -2,13 +2,11 @@ import "lazysizes"
 import "lazysizes/plugins/attrchange/ls.attrchange"
 import React from "react"
 import Head from "next/head"
-import Link from "next/link"
-import classcat from "classcat"
 
 import "styles/index.css"
 import SEO from "components/seo"
+import Header from "components/header"
 import Nprogress from "components/nprogress"
-import ActiveLink from "components/active-link"
 import BottomNavigation from "components/bottom-navigation"
 
 import { menus } from "config"
@@ -43,44 +41,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <SEO />
       <div className="min-h-full font-sans antialiased text-black bg-light-gray">
-        <header className="w-full">
-          <div className="container flex items-center justify-between h-16">
-            <Link href="/">
-              <a>
-                <svg width="32" height="32">
-                  <use
-                    href="/assets/icons.svg#logo-light"
-                    xlinkHref="/assets/icons.svg#logo-light"
-                  />
-                </svg>
-              </a>
-            </Link>
-
-            <nav className="hidden tablet:block">
-              <div className="flex items-center">
-                {menus.map((item) => {
-                  return (
-                    <ActiveLink
-                      className="ml-8"
-                      key={item.path}
-                      href={item.path}
-                    >
-                      {(active) => (
-                        <span
-                          className={classcat([
-                            active ? "text-primary" : "text-black",
-                          ])}
-                        >
-                          {item.title}
-                        </span>
-                      )}
-                    </ActiveLink>
-                  )
-                })}
-              </div>
-            </nav>
-          </div>
-        </header>
+        <Header menus={menus} />
 
         <main className="pb-16">
           <div className="container">

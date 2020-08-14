@@ -22,7 +22,7 @@ module.exports = {
       sans: ["Inter", "sans-serif"],
     },
     letterSpacing: {
-      wide: "0.02em",
+      wide: "0.01em",
     },
     screens: {
       tablet: "768px",
