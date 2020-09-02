@@ -54,6 +54,11 @@ export default function App({ Component, pageProps }) {
           className="fixed bottom-0 left-0 tablet:hidden"
         />
         <Nprogress />
+        <script
+          data-goatcounter="https://ng-hai.goatcounter.com/count"
+          async
+          src="//gc.zgo.at/count.js"
+        />
       </div>
     </React.StrictMode>
   )

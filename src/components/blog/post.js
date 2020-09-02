@@ -10,7 +10,7 @@ export default function Post(meta = {}) {
   return ({ children }) => {
     return (
       <MDXProvider components={components}>
-        <Page variants={postTranstion} className="mt-8">
+        <Page variants={postTranstion} className="my-8">
           <article>
             <SEO {...meta} />
             {meta.date && (
