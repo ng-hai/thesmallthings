@@ -98,7 +98,7 @@ export default function ContactForm({ children, ...props }) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="h-10 px-4 mt-4 text-sm font-semibold text-white bg-black border border-black focus:bg-white focus:text-black hover:bg-white hover:text-black disabled:bg-mid-gray disabled:text-dark-gray disabled:border-mid-gray"
+              className="h-10 px-4 mt-4 text-sm font-semibold text-white bg-black border border-black rounded focus:bg-white focus:text-black hover:bg-white hover:text-black disabled:bg-mid-gray disabled:text-dark-gray disabled:border-mid-gray"
             >
               {isSubmitting ? "Sending..." : "Send"}
             </button>
