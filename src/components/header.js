@@ -9,7 +9,7 @@ export default function Header({ menus }) {
     <header className="w-full">
       <div className="container flex items-center justify-between h-16">
         <Link href="/" passHref>
-          <a>
+          <a aria-label="Go to Homepage">
             <svg width="32" height="32">
               <use
                 href="/assets/icons.svg#logo-light"

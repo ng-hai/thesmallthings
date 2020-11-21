@@ -10,7 +10,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="preconnect" href="https://use.typekit.net/cve6kic.css" />
           <link
             rel="apple-touch-icon"
             sizes="180x180"

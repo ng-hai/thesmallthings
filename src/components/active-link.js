@@ -22,7 +22,12 @@ export default function ActiveLink({ children, className, ...props }) {
 
   if (isExternalLink(props.href)) {
     return (
-      <a {...props} className={className} target="_blank">
+      <a
+        {...props}
+        className={className}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {children(false)}
       </a>
     )
