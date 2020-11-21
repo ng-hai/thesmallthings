@@ -1,8 +1,5 @@
 import dynamic from "next/dynamic"
-
-const useField = dynamic(() => import("formik").then((mod) => mod.useField), {
-  ssr: false,
-})
+import { useField } from "formik"
 
 const TextField = dynamic(() => import("./text-field"), { ssr: false })
 

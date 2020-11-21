@@ -5,7 +5,7 @@ export const CodeBlock = ({ children, filename }) => {
   return (
     <div
       className={classcat([
-        "mb-10 mt-4 pb-4 overflow-x-auto border border-mid-gray rounded-sm",
+        "mb-10 mt-4 pb-4 overflow-x-auto border border-mid-gray rounded-md",
         {
           "pt-12": filename,
           "pt-4": !filename,
@@ -70,7 +70,7 @@ export const Link = ({ href, children, ...props }) => {
   }
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href} passHref>
       <a {...props} className="no-underline text-primary">
         {children}
       </a>
@@ -92,7 +92,7 @@ export const Heading = ({ as: Component }) => ({ children, id }) => {
   )
 }
 
-export default {
+const MdxComponents = {
   code: CodeBlock,
   img: Image,
   p: Paragraph,
@@ -100,3 +100,5 @@ export default {
   h2: Heading({ as: "h2" }),
   h3: Heading({ as: "h3" }),
 }
+
+export default MdxComponents

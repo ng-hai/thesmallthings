@@ -1,10 +1,6 @@
-import dynamic from "next/dynamic"
-import { pageTranstion } from "config"
+import { motion } from "framer-motion"
 
-const motion = dynamic(
-  () => import("framer-motion").then((mod) => mod.motion),
-  { ssr: false },
-)
+import { pageTranstion } from "config"
 
 export default function Page(props) {
   return (
