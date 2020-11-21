@@ -29,7 +29,7 @@ export default function ActiveLink({ children, className, ...props }) {
   }
 
   return (
-    <Link {...props}>
+    <Link {...props} passHref>
       <a className={className}>{children(isActive())}</a>
     </Link>
   )

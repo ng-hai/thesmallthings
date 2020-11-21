@@ -1,10 +1,10 @@
-import React from "react"
+import dynamic from "next/dynamic"
 import { MDXProvider } from "@mdx-js/react"
-
-import SEO from "components/seo"
-import Page from "components/page"
 import { postTranstion } from "config"
-import components from "./mdx-components"
+
+const SEO = dynamic(() => import("components/seo"), { ssr: false })
+const Page = dynamic(() => import("components/page"), { ssr: false })
+const components = dynamic(() => import("./mdx-components"), { ssr: false })
 
 export default function Post(meta = {}) {
   return ({ children }) => {

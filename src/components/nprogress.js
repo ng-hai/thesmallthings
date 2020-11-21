@@ -12,7 +12,7 @@ function startProgress() {
     timer = setInterval(() => {
       Nprogress.inc()
     }, 100)
-  }, 100)
+  }, 166)
 }
 
 function stopProgress() {

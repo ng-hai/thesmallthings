@@ -3,7 +3,7 @@ import classcat from "classcat"
 
 export default function MenuItem({ title, path, isActive }) {
   return (
-    <Link href={path}>
+    <Link href={path} passHref>
       <a>
         <li
           className={classcat([

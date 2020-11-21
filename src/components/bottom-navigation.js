@@ -1,6 +1,7 @@
+import dynamic from "next/dynamic"
 import classcat from "classcat"
 
-import ActiveLink from "./active-link"
+const ActiveLink = dynamic(() => import("./active-link"))
 
 export default function BottomNavigation({ menus, ...props }) {
   return (

@@ -1,11 +1,23 @@
-import React from "react"
 import classcat from "classcat"
-import { Formik, Form } from "formik"
+import { useState } from "react"
+import dynamic from "next/dynamic"
 
-import { FormikTextField } from "components/formik-components"
+const Formik = dynamic(() => import("formik").then((mod) => mod.Formik), {
+  ssr: false,
+})
+
+const Form = dynamic(() => import("formik").then((mod) => mod.Form), {
+  ssr: false,
+})
+
+const FormikTextField = dynamic(
+  () =>
+    import("components/formik-components").then((mod) => mod.FormikTextField),
+  { ssr: false },
+)
 
 export default function ContactForm({ children, ...props }) {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     sent: false,
     name: "",
   })
@@ -98,7 +110,13 @@ export default function ContactForm({ children, ...props }) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="h-10 px-4 mt-4 text-sm font-semibold text-white bg-black border border-black rounded focus:bg-white focus:text-black hover:bg-white hover:text-black disabled:bg-mid-gray disabled:text-dark-gray disabled:border-mid-gray"
+              className={classcat([
+                "h-10 px-4 mt-4 border border-black rounded",
+                "text-sm font-semibold text-white bg-black",
+                "focus:bg-white focus:text-black",
+                "hover:bg-white hover:text-black",
+                "disabled:text-dark-gray disabled:border-mid-gray disabled:bg-mid-gray",
+              ])}
             >
               {isSubmitting ? "Sending..." : "Send"}
             </button>

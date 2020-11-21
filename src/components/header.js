@@ -1,13 +1,14 @@
 import Link from "next/link"
+import dynamic from "next/dynamic"
 import classcat from "classcat"
 
-import ActiveLink from "./active-link"
+const ActiveLink = dynamic(() => import("./active-link"))
 
 export default function Header({ menus }) {
   return (
     <header className="w-full">
       <div className="container flex items-center justify-between h-16">
-        <Link href="/">
+        <Link href="/" passHref>
           <a>
             <svg width="32" height="32">
               <use
