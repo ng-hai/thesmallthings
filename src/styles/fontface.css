@@ -1,5 +1,5 @@
 @layer base {
-  * vietnamese */ @font-face {
+  @font-face {
     font-family: "IBM Plex Sans";
     font-style: italic;
     font-weight: 400;
