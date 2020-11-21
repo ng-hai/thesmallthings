@@ -27,8 +27,8 @@ export default function Header({ menus }) {
                   {(active) => (
                     <span
                       className={classcat([
-                        "tracking-wide",
-                        active ? "text-primary" : "text-black",
+                        "tracking-wide font-semibold",
+                        active ? "text-primary" : "text-dark-gray",
                       ])}
                     >
                       {item.title}

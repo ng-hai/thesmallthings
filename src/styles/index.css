@@ -1,6 +1,4 @@
-/* @import "./reset.css"; */
 @import "tailwindcss/base";
-@import "./fontface.css";
 @import "./nprogress.css";
 @import "./article.css";
 
@@ -29,5 +27,4 @@ html,
 body,
 #__next {
   @apply h-full;
-  font-feature-settings: "cpsp", "frac", "salt", "ss02", "calt", "liga", "kern";
 }

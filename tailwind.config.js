@@ -18,8 +18,18 @@ module.exports = {
       columbia: "#ADD6FF",
     },
     fontFamily: {
-      mono: ['"SF Mono"', "monospace"],
-      sans: ["Inter", "sans-serif"],
+      sans: ["'IBM Plex Sans'", "sans-serif"],
+      serif: ["'IBM Plex Serif'", "serif"],
+      mono: [
+        "ui-monospace",
+        "SFMono-Regular",
+        "Menlo",
+        "Monaco",
+        "Consolas",
+        '"Liberation Mono"',
+        '"Courier New"',
+        "monospace",
+      ],
     },
     letterSpacing: {
       wide: "0.01em",

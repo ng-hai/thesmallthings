@@ -5,7 +5,7 @@
     & h1,
     & h2,
     & h3 {
-      @apply font-bold leading-tight;
+      @apply font-serif font-bold leading-tight;
     }
 
     & h2,

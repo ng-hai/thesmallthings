@@ -112,7 +112,7 @@ export default function ContactForm({ children, ...props }) {
               disabled={isSubmitting}
               className={classcat([
                 "h-10 px-4 mt-4 border border-black rounded",
-                "text-sm font-semibold text-white bg-black",
+                "text-sm font-bold text-white bg-black",
                 "focus:bg-white focus:text-black",
                 "hover:bg-white hover:text-black",
                 "disabled:text-dark-gray disabled:border-mid-gray disabled:bg-mid-gray",
