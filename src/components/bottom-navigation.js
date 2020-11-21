@@ -34,9 +34,9 @@ export default function BottomNavigation({ menus, ...props }) {
                   >
                     <use xlinkHref={`/assets/icons.svg#${item.icon}`} />
                   </svg>
-                  <h5 className="mt-1 text-xs font-semibold tracking-wide">
+                  <span className="mt-1 text-xs font-semibold tracking-wide">
                     {item.title}
-                  </h5>
+                  </span>
                 </div>
               )}
             </ActiveLink>
