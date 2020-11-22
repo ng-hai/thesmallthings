@@ -5,7 +5,7 @@
     & h1,
     & h2,
     & h3 {
-      @apply font-serif font-bold leading-tight;
+      @apply font-serif;
     }
 
     & h2,
@@ -26,14 +26,14 @@
     }
 
     & h1 {
-      @apply text-3xl;
+      @apply text-3xl leading-tight;
 
       @screen tablet {
-        @apply text-5xl;
+        @apply text-5xl leading-tight;
       }
 
       @screen desktop {
-        @apply text-6xl;
+        @apply text-6xl leading-tight;
       }
     }
 
@@ -67,11 +67,11 @@
       @apply mt-4 leading-relaxed tracking-wide;
 
       @screen tablet {
-        @apply text-lg;
+        @apply text-lg leading-relaxed;
       }
 
       @screen desktop {
-        @apply text-xl;
+        @apply text-xl leading-relaxed;
       }
     }
 
