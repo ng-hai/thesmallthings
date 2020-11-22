@@ -1,7 +1,6 @@
-import dynamic from "next/dynamic"
 import { useField } from "formik"
 
-const TextField = dynamic(() => import("./text-field"), { ssr: false })
+import TextField from "./text-field"
 
 export function FormikTextField({ validate, ...props }) {
   const [field, meta] = useField({ validate, ...props })

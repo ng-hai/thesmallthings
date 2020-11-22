@@ -4,7 +4,7 @@
     font-style: italic;
     font-weight: 400;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYX-KVElMYYaJe8bpLHnCwDKhdTuGKZJW9XjDlN8.woff2)
+    src: url(/assets/fonts/ibm/ibm-plex-sans-italic-vietnamese.woff2)
       format("woff2");
     unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
       U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
@@ -15,7 +15,7 @@
     font-style: italic;
     font-weight: 400;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYX-KVElMYYaJe8bpLHnCwDKhdTuGaZJW9XjDlN8.woff2)
+    src: url(/assets/fonts/ibm/ibm-plex-sans-italic-latin-ext.woff2)
       format("woff2");
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
       U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -26,8 +26,7 @@
     font-style: italic;
     font-weight: 400;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYX-KVElMYYaJe8bpLHnCwDKhdTuF6ZJW9XjDg.woff2)
-      format("woff2");
+    src: url(/assets/fonts/ibm/ibm-plex-sans-italic.woff2) format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
       U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
       U+2215, U+FEFF, U+FFFD;
@@ -38,8 +37,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYXgKVElMYYaJe8bpLHnCwDKhd7eFaxOedfTDw.woff2)
-      format("woff2");
+    src: url(/assets/fonts/ibm/ibm-plex-sans-vietnamese.woff2) format("woff2");
     unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
       U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
   }
@@ -49,8 +47,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYXgKVElMYYaJe8bpLHnCwDKhd_eFaxOedfTDw.woff2)
-      format("woff2");
+    src: url(/assets/fonts/ibm/ibm-plex-sans-latin-ext.woff2) format("woff2");
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
       U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
   }
@@ -60,8 +57,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYXgKVElMYYaJe8bpLHnCwDKhdHeFaxOedc.woff2)
-      format("woff2");
+    src: url(/assets/fonts/ibm/ibm-plex-sans.woff2) format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
       U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
       U+2215, U+FEFF, U+FFFD;
@@ -72,7 +68,7 @@
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYX9KVElMYYaJe8bpLHnCwDKjQ76AI5sdP3pBmtF8A.woff2)
+    src: url(/assets/fonts/ibm/ibm-plex-sans-semibold-vietnamese.woff2)
       format("woff2");
     unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
       U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
@@ -83,7 +79,7 @@
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYX9KVElMYYaJe8bpLHnCwDKjQ76AI9sdP3pBmtF8A.woff2)
+    src: url(/assets/fonts/ibm/ibm-plex-sans-semibold-latin-ext.woff2)
       format("woff2");
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
       U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -94,8 +90,7 @@
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYX9KVElMYYaJe8bpLHnCwDKjQ76AIFsdP3pBms.woff2)
-      format("woff2");
+    src: url(/assets/fonts/ibm/ibm-plex-sans-semibold.woff2) format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
       U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
       U+2215, U+FEFF, U+FFFD;
@@ -106,7 +101,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYX9KVElMYYaJe8bpLHnCwDKjWr7AI5sdP3pBmtF8A.woff2)
+    src: url(/assets/fonts/ibm/ibm-plex-sans-bold-vietnamese.woff2)
       format("woff2");
     unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
       U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
@@ -117,7 +112,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYX9KVElMYYaJe8bpLHnCwDKjWr7AI9sdP3pBmtF8A.woff2)
+    src: url(/assets/fonts/ibm/ibm-plex-sans-bold-latin-ext.woff2)
       format("woff2");
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
       U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -128,8 +123,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexsans/v8/zYX9KVElMYYaJe8bpLHnCwDKjWr7AIFsdP3pBms.woff2)
-      format("woff2");
+    src: url(/assets/fonts/ibm/ibm-plex-sans-bold.woff2) format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
       U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
       U+2215, U+FEFF, U+FFFD;
@@ -140,7 +134,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexserif/v9/jizAREVNn1dOx-zrZ2X3pZvkTi2k_iI7q1vjitOh3oc.woff2)
+    src: url(/assets/fonts/ibm/ibm-plex-serif-bold-vietnamese.woff2)
       format("woff2");
     unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
       U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
@@ -151,7 +145,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexserif/v9/jizAREVNn1dOx-zrZ2X3pZvkTi2k_iI6q1vjitOh3oc.woff2)
+    src: url(/assets/fonts/ibm/ibm-plex-serif-bold-latin-ext.woff2)
       format("woff2");
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
       U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -162,8 +156,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(https://fonts.gstatic.com/s/ibmplexserif/v9/jizAREVNn1dOx-zrZ2X3pZvkTi2k_iI0q1vjitOh.woff2)
-      format("woff2");
+    src: url(/assets/fonts/ibm/ibm-plex-serif-bold.woff2) format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
       U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
       U+2215, U+FEFF, U+FFFD;
