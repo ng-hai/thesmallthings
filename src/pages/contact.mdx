@@ -1,9 +1,5 @@
 import Post from "components/blog/post"
-import dynamic from "next/dynamic"
-
-export const ContactForm = dynamic(() => import("components/contact-form"), {
-  ssr: false,
-})
+import ContactForm from "components/contact-form"
 
 export const meta = {
   title: `Contact — The Small Things`,

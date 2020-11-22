@@ -20,7 +20,7 @@ export default function TextField({
           type="text"
           {...props}
           className={classcat([
-            "w-full appearance-none h-10 px-3 mt-1 text-base border focus:border-black rounded outline-none",
+            "w-full h-10 px-3 mt-1 text-base border focus:border-black rounded outline-none",
             {
               "border-mid-gray": !hasError,
               "border-error": hasError,
@@ -33,7 +33,7 @@ export default function TextField({
           rows="8"
           {...props}
           className={classcat([
-            "w-full appearance-none block px-3 py-2 mt-1 text-base border focus:border-black rounded outline-none",
+            "w-full block px-3 py-2 mt-1 text-base border focus:border-black rounded outline-none",
             {
               "border-mid-gray": !hasError,
               "border-error": hasError,
