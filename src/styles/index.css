@@ -29,3 +29,9 @@ body,
 #__next {
   @apply h-full;
 }
+
+input,
+textarea,
+select {
+  @apply appearance-none;
+}
