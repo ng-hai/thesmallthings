@@ -43,6 +43,12 @@ class MyDocument extends Document {
             rel="preload"
             as="font"
             type="font/woff2"
+            href="/assets/fonts/ibm-plex-serif-bold-vn.woff2"
+          />
+          <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
             href="/assets/fonts/ibm-plex-sans-italic.woff2"
           />
           <link
