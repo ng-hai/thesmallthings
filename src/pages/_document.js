@@ -33,7 +33,36 @@ class MyDocument extends Document {
           <meta name="application-name" content="The Small Things" />
           <meta name="msapplication-TileColor" content="#1366E9" />
           <meta name="theme-color" content="#ffffff" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href="/assets/fonts/ibm-plex-serif-bold.woff2"
+          />
+          <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href="/assets/fonts/ibm-plex-sans-italic.woff2"
+          />
+          <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href="/assets/fonts/ibm-plex-sans.woff2"
+          />
+          <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href="/assets/fonts/ibm-plex-sans-semibold.woff2"
+          />
+          <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href="/assets/fonts/ibm-plex-sans-bold.woff2"
+          />
         </Head>
         <body>
           <Main />

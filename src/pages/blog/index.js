@@ -25,7 +25,7 @@ export default function BlogListing({ posts }) {
           <Link passHref href={meta.slug} key={meta.slug}>
             <a className="block mt-10 text-xl hover:cursor-pointer group">
               <time className="text-sm tracking-wide">{meta.date}</time>
-              <h2 className="text-xl font-bold leading-tight tablet:text-2xl desktop:text-4xl group-hover:text-primary">
+              <h2 className="font-serif text-xl leading-tight tablet:text-2xl desktop:text-4xl group-hover:text-primary">
                 {meta.title}
               </h2>
               <p className="mt-1 text-base tracking-wide tablet:text-lg desktop:text-xl">
