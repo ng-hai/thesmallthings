@@ -18,8 +18,8 @@ module.exports = {
       columbia: "#ADD6FF",
     },
     fontFamily: {
-      sans: ["'IBM Plex Sans'", "sans-serif"],
-      serif: ["'IBM Plex Serif'", "serif"],
+      sans: ["ibm-plex-sans", "sans-serif"],
+      serif: ["ibm-plex-serif", "serif"],
       mono: [
         "ui-monospace",
         "SFMono-Regular",
