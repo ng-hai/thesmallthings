@@ -33,7 +33,7 @@ class MyDocument extends Document {
           <meta name="application-name" content="The Small Things" />
           <meta name="msapplication-TileColor" content="#1366E9" />
           <meta name="theme-color" content="#ffffff" />
-          <link rel="preconnet" href="https://use.typekit.net" />
+          <link rel="preconnect" href="https://use.typekit.net" />
           <link rel="stylesheet" href="https://use.typekit.net/syr0rei.css" />
         </Head>
         <body>
