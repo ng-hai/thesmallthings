@@ -2,10 +2,10 @@ import React from "react"
 import Link from "next/link"
 import dynamic from "next/dynamic"
 
+import SEO from "components/seo"
 import { importAll } from "utils"
 
 const Page = dynamic(() => import("components/page"), { ssr: false })
-const SEO = dynamic(() => import("components/seo"), { ssr: false })
 
 export function getStaticProps() {
   const postList = importAll(require.context(".", true, /.mdx?$/))

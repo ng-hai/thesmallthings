@@ -5,8 +5,8 @@ import dynamic from "next/dynamic"
 
 import "styles/index.css"
 import { menus } from "config"
+import SEO from "components/seo"
 
-const SEO = dynamic(() => import("components/seo"), { ssr: false })
 const Header = dynamic(() => import("components/header"), { ssr: false })
 const Nprogress = dynamic(() => import("components/nprogress"), { ssr: false })
 const BottomNavigation = dynamic(() => import("components/bottom-navigation"), {
