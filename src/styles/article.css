@@ -6,6 +6,10 @@
     & h2,
     & h3 {
       @apply font-serif;
+
+      & > a {
+        @apply text-black;
+      }
     }
 
     & h2,
@@ -114,6 +118,7 @@
       }
     }
 
+    & a,
     & a > code {
       @apply text-primary;
     }
@@ -123,13 +128,6 @@
 
       & > *:first-child {
         @apply m-0;
-      }
-
-      & > *:last-child {
-        &::before {
-          content: "—";
-          @apply mr-2;
-        }
       }
     }
 

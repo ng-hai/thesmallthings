@@ -4,22 +4,22 @@ import { postTranstion } from "config"
 import SEO from "components/seo"
 import components from "./mdx-components"
 
-const Page = dynamic(() => import("components/page"), { ssr: false })
+const Page = dynamic(() => import("components/page"))
 
-export default function Post(meta = {}) {
-  return ({ children }) => {
-    return (
-      <MDXProvider components={components}>
-        <Page variants={postTranstion} className="my-8">
-          <article>
-            <SEO {...meta} />
-            {meta.date && (
-              <time className="block tracking-wide">{meta.date}</time>
-            )}
-            {children}
-          </article>
-        </Page>
-      </MDXProvider>
-    )
-  }
+export default function Post({ metadata, children }) {
+  return (
+    <MDXProvider components={components}>
+      <Page variants={postTranstion} className="my-8">
+        <article>
+          <SEO {...metadata} />
+          {metadata.date && (
+            <time className="block text-sm font-semibold desktop:text-base text-dark-gray">
+              {metadata.date}
+            </time>
+          )}
+          {children}
+        </article>
+      </Page>
+    </MDXProvider>
+  )
 }

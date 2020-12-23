@@ -1,4 +1,4 @@
-export default async (req, res) => {
+export default async function Message(req, res) {
   const { name, message, email } = req.body
 
   if (!name || !message || !email) {
@@ -14,13 +14,13 @@ export default async (req, res) => {
   // https://core.telegram.org/bots/api#markdownv2-style
   const escapedEmail = email.replace(/_/g, "\\_")
 
-  fetch(`https://api.telegram.org/bot${process.env.botToken}/sendMessage`, {
+  fetch(`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      chat_id: process.env.chatId,
+      chat_id: process.env.CHAT_ID,
       parse_mode: "Markdown",
       text: `“${message}”\n— ${name} <${escapedEmail}>`,
     }),

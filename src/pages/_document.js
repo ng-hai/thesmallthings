@@ -10,6 +10,15 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="preconnect" href="https://use.typekit.net" />
+          <link rel="preconnect" href="https://p.typekit.net" />
+          <link
+            crossOrigin
+            rel="preload"
+            as="style"
+            href="https://use.typekit.net/syr0rei.css"
+          />
+
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -33,7 +42,6 @@ class MyDocument extends Document {
           <meta name="application-name" content="The Small Things" />
           <meta name="msapplication-TileColor" content="#1366E9" />
           <meta name="theme-color" content="#ffffff" />
-          <link rel="preconnect" href="https://use.typekit.net" />
           <link rel="stylesheet" href="https://use.typekit.net/syr0rei.css" />
         </Head>
         <body>

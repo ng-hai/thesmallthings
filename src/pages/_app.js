@@ -7,11 +7,9 @@ import "styles/index.css"
 import { menus } from "config"
 import SEO from "components/seo"
 
-const Header = dynamic(() => import("components/header"), { ssr: false })
-const Nprogress = dynamic(() => import("components/nprogress"), { ssr: false })
-const BottomNavigation = dynamic(() => import("components/bottom-navigation"), {
-  ssr: false,
-})
+const Header = dynamic(() => import("components/header"))
+const Nprogress = dynamic(() => import("components/nprogress"))
+const BottomNavigation = dynamic(() => import("components/bottom-navigation"))
 
 export default function App({ Component, pageProps }) {
   return (
