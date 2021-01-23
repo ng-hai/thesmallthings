@@ -1,25 +1,3 @@
-export const pageTranstion = {
-  incoming: {
-    y: 16,
-    opacity: 0,
-  },
-  enter: {
-    y: 0,
-    opacity: 1,
-  },
-}
-
-export const postTranstion = {
-  incoming: {
-    y: 16,
-    opacity: 0,
-  },
-  enter: {
-    y: 0,
-    opacity: 1,
-  },
-}
-
 export const menus = [
   {
     title: "Home",

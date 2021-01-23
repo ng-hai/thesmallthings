@@ -1,10 +1,10 @@
 @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./fonts.css";
 @import "./nprogress.css";
 @import "./article.css";
-
-@import "tailwindcss/components";
-
-@import "tailwindcss/utilities";
 
 *,
 *::before,
@@ -20,7 +20,7 @@ samp {
 }
 
 ::selection {
-  @apply bg-columbia;
+  @apply text-white bg-black;
 }
 
 html,

@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "ibm-plex-sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/fonts/ibm-plex-sans-italic.woff2) format("woff2"),
+    url(/assets/fonts/ibm-plex-sans-italic.woff) format("woff");
+}
+@font-face {
+  font-family: "ibm-plex-sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/assets/fonts/ibm-plex-sans.woff2) format("woff2"),
+    url(/assets/fonts/ibm-plex-sans.woff) format("woff");
+}
+@font-face {
+  font-family: "ibm-plex-sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/assets/fonts/ibm-plex-sans-semibold.woff2) format("woff2"),
+    url(/assets/fonts/ibm-plex-sans-semibold.woff) format("woff");
+}
+@font-face {
+  font-family: "ibm-plex-sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/assets/fonts/ibm-plex-sans-bold.woff2) format("woff2"),
+    url(/assets/fonts/ibm-plex-sans-bold.woff) format("woff");
+}
+@font-face {
+  font-family: "ibm-plex-sans";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/assets/fonts/ibm-plex-sans-bold-italic.woff2) format("woff2"),
+    url(/assets/fonts/ibm-plex-sans-bold-italic.woff) format("woff");
+}
+
+@font-face {
+  font-family: "ibm-plex-serif";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/assets/fonts/ibm-plex-serif-bold.woff2) format("woff2"),
+    url(/assets/fonts/ibm-plex-serif-bold.woff) format("woff");
+}
